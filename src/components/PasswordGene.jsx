@@ -66,7 +66,7 @@ const PasswordGene = () => {
                 </div>
             </div>
             {showPopup && (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center  bg-opacity-50">
         <div className="bg-white p-4 rounded shadow-lg">
             <p className="text-gray-800">Password copied to clipboard!</p>
         </div>
