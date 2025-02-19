@@ -4,6 +4,7 @@ const PasswordGene = () => {
 
     const [length, setLength] = useState(8);
     const [numberAllowed, setNumberAllowed] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
     const [charAllowed, setCharAllowed] = useState(false);
     const [password, setPassword] = useState("");
   const passwordRef = useRef(null);
@@ -20,9 +21,11 @@ const PasswordGene = () => {
     }, [length, numberAllowed, charAllowed]);
 
     const copyText=useCallback(()=>{
-
-      passwordRef.current?.select();
+        passwordRef.current?.select();
      window.navigator.clipboard.writeText(password);
+     setShowPopup(true);
+     setTimeout(() => setShowPopup(false), 2000);
+
     },[password])
       
 
@@ -62,7 +65,16 @@ const PasswordGene = () => {
                     <label htmlFor='characterInput' className='text-gray-800'>Include Special Characters</label>
                 </div>
             </div>
+            {showPopup && (
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="bg-white p-4 rounded shadow-lg">
+            <p className="text-gray-800">Password copied to clipboard!</p>
         </div>
+    </div>
+)}
+        </div>
+
+        
     )
 }
 
