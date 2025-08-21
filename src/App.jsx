@@ -1,10 +1,17 @@
 
 // import Card from './components/Card'
 // import ChangeColProject from './components/ChangeColProject'
-import PasswordGene from './components/PasswordGene'
+import { useContext, useState } from 'react'
+// import PasswordGene from './components/PasswordGene'
+// import Counter from './components/Counter'
+// import { UseContext} from './components/UserContext'
+import Item from './components/Item'
+import CartContext from './components/CartContext'
+import Cart from './components/Cart'
 
 const App = () => {
-
+  const [col,setcol ] = useState("black")
+  const names=["awais","ali","ahmad","salman","asim"]
   const data=[
     {
       "image": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -32,9 +39,21 @@ const App = () => {
       "description": "Product Manager with a strong background in agile methodologies and user-centered design."
     }
   ]
-
+    
+    
   return (
-      <PasswordGene/>
+     <>
+
+    <h1 className=' text-center py-5 shadow  shadow-black'>Counter </h1>
+    
+    <Item name={"ball"} price={200}/>
+    <Item name={"bat"} price={300}/>
+    <Item name={"reckets"} price={700}/>
+      <Cart/>
+     </>
+ 
+      
+      
   )
 }
 

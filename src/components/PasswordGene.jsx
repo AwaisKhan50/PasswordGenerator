@@ -22,6 +22,9 @@ const PasswordGene = () => {
 
     const copyText=useCallback(()=>{
         passwordRef.current?.select();
+        console.log(passwordRef);
+        passwordRef.current?.setSelectionRange(2,30);
+        
      window.navigator.clipboard.writeText(password);
      setShowPopup(true);
      setTimeout(() => setShowPopup(false), 2000);
